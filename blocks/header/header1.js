@@ -119,26 +119,17 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['top', 'brand', 'sections', 'tools'];
+  const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandButtonLink = navBrand.querySelector('.button');
-  const brandLogoImage = document.createElement('img');
-  const brandLogoLink = document.createElement('a');
-  brandLogoImage.src = `${window.hlx.codeBasePath}/icons/wknd-logo-dk.svg`;
-  brandLogoImage.alt = 'Brand Logo';
-  navBrand.prepend(brandLogoImage);
-  brandLogoLink.href = '/us/en';
-
-  if (brandButtonLink) {
-    // brandLink.className = '';
-    // brandLink.closest('.button-container').className = '';
-    brandLogoLink.appendChild(brandLogoImage);
-    navBrand.prepend(brandLogoLink);
+  const brandLink = navBrand.querySelector('.button');
+  if (brandLink) {
+    brandLink.className = '';
+    brandLink.closest('.button-container').className = '';
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -169,32 +160,7 @@ export default async function decorate(block) {
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
-  const navContainer = document.createElement('div');
-  const navTop = nav.querySelector('.nav-top');
-  navContainer.className = 'nav-container';
   navWrapper.className = 'nav-wrapper';
-
-  navContainer.append(nav);
-  navWrapper.append(navContainer);
-
+  navWrapper.append(nav);
   block.append(navWrapper);
-  block.prepend(navTop);
-
-  let scrollpos = window.scrollY;
-  const headerNav = document.querySelector('nav');
-  const header = document.querySelector('body');
-  const headerHeight = headerNav.offsetHeight;
-
-  const addClassOnScroll = () => header.classList.add('scroll');
-  const removeClassOnScroll = () => header.classList.remove('scroll');
-
-  window.addEventListener('scroll', () => {
-    scrollpos = window.scrollY;
-
-    if (scrollpos >= headerHeight) {
-      addClassOnScroll();
-    } else {
-      removeClassOnScroll();
-    }
-  });
 }

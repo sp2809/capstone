@@ -1,6 +1,7 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  background-color: var(--background-color-light);
 }
 
 .columns img {
@@ -8,26 +9,105 @@
 }
 
 .columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+.columns > div > div:last-of-type {
+  padding-left: 2em;
+  padding-right: 0.75em;
+}
+
+.columns > div > div:last-of-type h4 {
+  font-size: var(--heading-font-size-s);
+  font-weight: 600;
+  line-height: 2.5;
+}
+
+p {
+  font-size: var(--heading-font-size-s);
+  font-family: var(--body-font-family, "Source Sans Pro", "Helvetica Neue", helvetica, arial, sans-serif);
+}
+
+.columns > div > .columns-img-col {
+  order: 1;
+}
+
+.columns > div > .columns-img-col picture {
+  width: 100%;
   display: block;
+  height: auto;
+}
+
+.columns > div > .columns-img-col img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.columns > div > div:last-of-type > p {
+  font-size: 18px;
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    gap: 5px;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns > div > .columns-img-col {
+    order: 0;
+  }
+
+  .columns > div > .columns-img-col picture {
+    width: 580px;
+    display: block;
+    height: 540px;
+  }
+
+  .columns > div > .columns-img-col img {
+    width: 100%;
+    display: block;
+    height: 540px;
+  }
+
+  .columns > div > div:last-of-type h2 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+
+  .columns > div > div:last-of-type {
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+  }
+}
+
+@media (width >= 1120px) {
+  .columns > div > .columns-img-col picture {
+    width: 710px;
+    display: block;
+    height: 510px;
+  }
+
+  .columns > div > .columns-img-col img {
+    width: 100%;
+    display: block;
+    height: 510px;
+  }
+
+  .columns > div > div:last-of-type h2 {
+    margin-top: 27px;
+    font-size: 36px;
+  }
+
+  .columns > div > div:last-of-type {
+    padding-left: 2em;
+    padding-right: 0.75em;
   }
 }

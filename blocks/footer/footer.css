@@ -1,9 +1,10 @@
 footer {
-  background-color: var(--light-color);
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
   font-size: var(--body-font-size-xs);
 }
 
-footer .footer > div {
+footer .footer>div {
   margin: auto;
   max-width: 1200px;
   padding: 40px 24px 24px;
@@ -13,8 +14,76 @@ footer .footer p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
+footer .footer-info > .default-content-wrapper > p {
+  margin: 0 0 20px;
+}
+
+.top-footer > .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+
+.top-footer > .default-content-wrapper > h2 {
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0 50px 0 0;
+}
+
+.top-footer > .default-content-wrapper a {
+  color: var(--footer-text-color);
+  text-decoration: none;
+  padding: 20px;
+}
+
+.top-footer>.default-content-wrapper a:hover {
+  text-decoration: underline;
+}
+
+.top-footer>.default-content-wrapper>p:last-child {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.top-footer>.default-content-wrapper>p:last-child a {
+  padding: 0;
+}
+
+.top-footer p span.icon {
+  background: #696868;
+  padding: 10px;
+
+}
+
+.top-footer p strong {
+  margin-right: 20px;
+}
+
+
+
+@media (width >=900px) {
+  footer .footer>div {
     padding: 40px 32px 24px;
+  }
+}
+
+@media (width <= 600px) {
+  .top-footer > .default-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .top-footer > .default-content-wrapper a {
+    padding: 0 10px 0 0;
+  }
+  
+  .top-footer>.default-content-wrapper>p:last-child {
+    margin:15px 0 0;
   }
 }
