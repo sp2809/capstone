@@ -12,7 +12,7 @@
 
 /* eslint-env browser */
 function sampleRUM(checkpoint, data) {
-  // eslint-disable-next-line max-len
+
   const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
   try {
     window.hlx = window.hlx || {};
@@ -21,7 +21,7 @@ function sampleRUM(checkpoint, data) {
       const weight = new URLSearchParams(window.location.search).get('rum') === 'on' ? 1 : 100;
       const id = Math.random().toString(36).slice(-4);
       const isSelected = Math.random() * weight < 1;
-      // eslint-disable-next-line object-curly-newline, max-len
+
       window.hlx.rum = {
         weight,
         id,
@@ -68,7 +68,7 @@ function sampleRUM(checkpoint, data) {
         sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://rum.hlx.page'));
         sampleRUM.collectBaseURL = sampleRUM.collectBaseURL || sampleRUM.baseURL;
         sampleRUM.sendPing = (ck, time, pingData = {}) => {
-          // eslint-disable-next-line max-len, object-curly-newline
+
           const rumData = JSON.stringify({
             weight,
             id,
@@ -82,7 +82,7 @@ function sampleRUM(checkpoint, data) {
             ? new Blob([rumData], { type: 'application/json' })
             : rumData;
           navigator.sendBeacon(url, body);
-          // eslint-disable-next-line no-console
+
           console.debug(`ping:${ck}`, pingData);
         };
         sampleRUM.sendPing('top', timeShift());
@@ -124,7 +124,7 @@ function setup() {
     try {
       [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split('/scripts/scripts.js');
     } catch (error) {
-      // eslint-disable-next-line no-console
+
       console.log(error);
     }
   }
@@ -168,7 +168,6 @@ function toCamelCase(name) {
  * @param {Element} block The block element
  * @returns {object} The block config
  */
-// eslint-disable-next-line import/prefer-default-export
 function readBlockConfig(block) {
   const config = {};
   block.querySelectorAll(':scope > div').forEach((row) => {
@@ -237,7 +236,7 @@ async function loadScript(src, attrs) {
       const script = document.createElement('script');
       script.src = src;
       if (attrs) {
-        // eslint-disable-next-line no-restricted-syntax, guard-for-in
+
         for (const attr in attrs) {
           script.setAttribute(attr, attrs[attr]);
         }
@@ -484,7 +483,6 @@ function decorateSections(main) {
  * @param {string} [prefix] Location of placeholders
  * @returns {object} Window placeholders object
  */
-// eslint-disable-next-line import/prefer-default-export
 async function fetchPlaceholders(prefix = 'default') {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
@@ -568,7 +566,7 @@ async function loadBlock(block) {
               await mod.default(block);
             }
           } catch (error) {
-            // eslint-disable-next-line no-console
+
             console.log(`failed to load module for ${blockName}`, error);
           }
           resolve();
@@ -576,7 +574,7 @@ async function loadBlock(block) {
       });
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (error) {
-      // eslint-disable-next-line no-console
+
       console.log(`failed to load block ${blockName}`, error);
     }
     block.dataset.blockStatus = 'loaded';
@@ -662,7 +660,7 @@ async function loadSection(section, loadCallback) {
     section.dataset.sectionStatus = 'loading';
     const blocks = [...section.querySelectorAll('div.block')];
     for (let i = 0; i < blocks.length; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
+
       await loadBlock(blocks[i]);
     }
     if (loadCallback) await loadCallback(section);
@@ -679,7 +677,7 @@ async function loadSection(section, loadCallback) {
 async function loadSections(element) {
   const sections = [...element.querySelectorAll('div.section')];
   for (let i = 0; i < sections.length; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
+
     await loadSection(sections[i]);
   }
 }
