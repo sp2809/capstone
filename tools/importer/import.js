@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 /* global WebImporter */
-/* eslint-disable no-console, class-methods-use-this */
+
 
 export default {
   /**
@@ -23,7 +23,7 @@ export default {
    * @returns {HTMLElement} The root element to be transformed
    */
   transformDOM: ({
-    // eslint-disable-next-line no-unused-vars
+
     document,
     url,
     html,
@@ -62,7 +62,7 @@ export default {
    * @return {string} The path
    */
   generateDocumentPath: ({
-    // eslint-disable-next-line no-unused-vars
+
     document,
     url,
     html,

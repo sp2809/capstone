@@ -1,93 +1,47 @@
-.writer-list > ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-    grid-gap: 24px;
-  }
-  
-  .writer-list > ul > li {
-    background-color: transparent;
-  }
-  
-  .writer-list .writer-list-body {
-    margin: 16px 16px 16px 0;
-    text-align: center;
-  }
-  
-  .writer-list .writer-list-image {
-    line-height: 0;
-    text-align: center;
-  }
-  
-  .writer-list > ul > li img {
-    width: 164px;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 50%;
-    height: 164px;
-  }
-  
-  .writer-list .writer-list-body p strong {
-    color: var(--text-color);
-  }
-  
-  .writer-list .writer-list-image a.button:any-link {
-    background: none;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-  }
-  
-  .writer-list > ul > li .writer-list-image picture {
-    display: block;
-  }
-  
-  .writer-list .writer-list-body a {
-    margin: 0;
-    padding: 0;
-    color: var(--light-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    font-family: Wkndicons, sans-serif !important;
-    width: 48px;
-    height: 48px;
-    background-color: var(--text-color);
-    display: inline-block;
-    overflow: hidden;
-  }
-  
-  .writer-list .writer-list-body a:hover {
-    color: var(--light-color);
-    text-decoration: underline;
-  }
-  
-  .writer-list .writer-list-body h3 {
-    font-family: var(--heading-font-family, "Asar", Georgia, "Times New Roman", Times, serif);
-    font-weight: normal;
-    margin-bottom: .25em;
-    margin-top: 0;
-  }
-  
-  .writer-list .writer-list-body h5 {
-    margin-bottom: .25em;
-    margin-top: 0;
-  }
-  
-  .writer-list .writer-list-body a .icon {
-    width: 48px;
-    height: 48px;
-    padding: 10px 0;
-  }
-  
-  .writer-list .writer-list-body a .icon::before {
-    font-size: 18px;
-  }
-  
-  .writer-list .writer-list-body a .icon-facebook-link img,
-  .writer-list .writer-list-body a .icon-twitter-link img,
-  .writer-list .writer-list-body a .icon-instagram-link img {
-    display: none;
-  }
+.contributors>ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-gap: 24px;
+}
+
+.contributors>ul>li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contributors .contributors-body {
+  margin: 16px;
+  text-align: center;
+}
+
+.contributors .contributors-image {
+  line-height: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+
+.contributors>ul>li img {
+  width: 100%;
+  aspect-ratio: 3 / 3;
+  object-fit: cover;
+}
+
+.contributors .contributors-body p {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  width: 18rem;
+}
+
+.contributors .contributors-body p a {
+  background: var(--text-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
