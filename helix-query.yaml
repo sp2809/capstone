@@ -1,0 +1,28 @@
+version: 1
+# See https://www.hlx.live/docs/setup-indexing.
+
+indices:
+  site:
+    include:
+      - '**'
+    exclude:
+      - '/feedback-form'
+    target: /query-index
+    # target: SharePoint URL of your query index, e.g. <shared-folder-url>/query-index.xlsx
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
