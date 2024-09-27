@@ -56,7 +56,7 @@ async function handleSubmit(form) {
       },
     });
     if (response.ok) {
-      alert("Data submitted successfully!")
+      alert("Data submitted successfully!");
       window.location.reload();
       // if (form.dataset.confirmation) {
       //   window.location.href = form.dataset.confirmation;
@@ -67,7 +67,7 @@ async function handleSubmit(form) {
       throw new Error(error);
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
+
     console.error(e);
   } finally {
     form.setAttribute('data-submitting', 'false');

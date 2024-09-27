@@ -5,18 +5,18 @@ async function fetchCardsData() {
   try {
     const response = await fetch(`/query-index.json`);
     const data = await response.json();
-    
+
     // Filter data to only include cards where template is 'magazine'
     const filteredData = data.data.filter(card => card.template === 'magazine');
-    
+
     // Check the current URL
     const currentPath = window.location.pathname;
-    
+
     // If the path is not '/magazine', limit the result to the first 4 items
     if (currentPath !== '/magazine') {
       return filteredData.slice(0, 4); // Return only the first 4 items
     }
-    
+
     // Otherwise, return all data for the '/magazine' URL
     return filteredData;
   } catch (error) {
@@ -27,67 +27,67 @@ async function fetchCardsData() {
 
 export default async function decorate(block) {
   const ul = document.createElement('ul');
-  
+
   // Fetch and filter card data
   const cardData = await fetchCardsData();
-  
+
   if (cardData.length) {
     cardData.forEach((card) => {
       // Create the <li> element
       const li = document.createElement('li');
-      
+
       // Create an anchor <a> element and set the href to card.path
       const anchor = document.createElement('a');
       anchor.href = card.path;
       anchor.className = 'cards-card-link'; // Add any class if needed for styling
-      
+
       // Make the anchor tag target "_blank" to open the link in a new tab (optional)
       // anchor.target = '_blank';
-    
+
       // Create the card image
       const pictureWrapper = document.createElement('div');
       pictureWrapper.className = 'cards-card-image';
-    
+
       // Construct the full image URL
       const fullImageUrl = `https://example.com${card.image}`; // Replace with your actual domain
-    
+
       const picture = createOptimizedPicture(fullImageUrl, card.imageAlt, false, [{ width: '750' }]);
       pictureWrapper.append(picture);
       anchor.append(pictureWrapper); // Append picture to the anchor tag
-      
+
       // Create the card body
       const bodyWrapper = document.createElement('div');
       bodyWrapper.className = 'cards-card-body';
-    
+
       // Add title
       const title = document.createElement('h3');
       title.textContent = card.title;
       bodyWrapper.append(title);
-      
+
       // Add description
       const description = document.createElement('p');
       description.textContent = card.description;
       bodyWrapper.append(description);
-      
+
       // Add button if exists
       if (card.buttonLink && card.buttonText) {
         const buttonContainer = document.createElement('div');
         buttonContainer.className = 'button-container';
-        
+
         const button = document.createElement('a');
         button.href = card.buttonLink;
         button.textContent = card.buttonText;
         button.className = 'button';
-        
+
         buttonContainer.append(button);
         bodyWrapper.append(buttonContainer);
       }
-    
+
       anchor.append(bodyWrapper); // Append the card body to the anchor tag
       li.append(anchor); // Append the anchor to the <li>
       ul.append(li); // Append the <li> to the <ul>
     });
-    
+
   } else {
     // No filtered cards found
     const noResults = document.createElement('p');
