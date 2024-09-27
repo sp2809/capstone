@@ -56,18 +56,16 @@ async function handleSubmit(form) {
       },
     });
     if (response.ok) {
-      alert("Data submitted successfully!");
-      window.location.reload();
-      // if (form.dataset.confirmation) {
-      //   window.location.href = form.dataset.confirmation;
-      //   alert("Data submitted successfully!")
-      // }
+      if (form.dataset.confirmation) {
+        window.location.href = form.dataset.confirmation;
+        alert("Data submitted successfully!")
+      }
     } else {
       const error = await response.text();
       throw new Error(error);
     }
   } catch (e) {
-
+    // eslint-disable-next-line no-console
     console.error(e);
   } finally {
     form.setAttribute('data-submitting', 'false');
