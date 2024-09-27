@@ -363,12 +363,12 @@ main .section.highlight {
 main> .section.form-container{
   margin: 0;
 }
+
 .section.contributors.registraionpage{
   margin-bottom: 0;
- 
 }
+
 .section.contributors.registraionpage h2{
-  margin-bottom: 0;
   background-color: #000;
   padding: 36px 36px 0;
   max-width: 450px;

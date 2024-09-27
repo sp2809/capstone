@@ -1,3 +1,20 @@
+.registrationform{
+  background-color: #000;
+  padding: 36px;
+  max-width: 450px;
+  color: #000;
+  margin: 0 auto;
+}
+
+.registrationform label{
+  color: #fff;
+  display: none;
+}
+
+.registrationform #form-interests{
+  height: 100px;
+}
+
 .form .field-wrapper {
     display: grid;
     grid-auto-flow: row;
@@ -167,23 +184,6 @@
   
   .form .toggle-wrapper input:checked + .slider::before {
     transform: translateX(24px);
-  }
-
-
-
-  .registrationform{
-    background-color: #000;
-    padding: 36px;
-    max-width: 450px;
-    color: #000;
-    margin: 0 auto;
-  }
-  .registrationform label{
-    color: #fff;
-    display: none;
-  }
-  .registrationform #form-interests{
-    height: 100px;
   }
 
   
