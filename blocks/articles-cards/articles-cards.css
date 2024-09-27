@@ -1,4 +1,4 @@
-.cards > ul {
+.articles-cards > ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -7,37 +7,37 @@
     grid-gap: 24px;
   }
   
-  .cards > ul > li {
+  .articles-cards > ul > li {
     border: none;
     background-color: transparent;
   }
   
-  .cards .cards-card-body {
+  .articles-cards .articles-cards-card-body {
     margin: 16px 16px 16px 0;
   }
   
-  .cards .cards-card-image {
+  .articles-cards .articles-cards-card-image {
     line-height: 0;
   }
   
-  .cards > ul > li img {
+  .articles-cards > ul > li img {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
   }
   
-  .cards .cards-card-image a.button:any-link {
+  .articles-cards .articles-cards-card-image a.button:any-link {
     background: none;
     padding: 0;
     margin: 0;
     border-radius: 0;
   }
   
-  .cards>ul>li .cards-card-image picture {
+  .articles-cards>ul>li .articles-cards-card-image picture {
     display: block;
   }
   
-  .cards .cards-card-body a {
+  .articles-cards .articles-cards-card-body a {
     margin: 0;
     padding: 0;
     color: var(--text-color, #202020);
@@ -49,12 +49,12 @@
     font-family: var(--body-font-family, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
   }
   
-  .cards .cards-card-body a:hover {
+  .articles-cards .articles-cards-card-body a:hover {
     color: var(--text-color, #202020);
     text-decoration: underline;
   }
   
-  .cards .cards-card-body .card-paragraph {
+  .articles-cards .cards-card-body p {
     color: dimgray;
     display: block;
     font-size: var(--font-size-small, 14px);
@@ -64,4 +64,8 @@
     text-transform: uppercase;
     white-space: nowrap;
     width: 260px;
+  }
+
+  .articles-cards a:any-link {
+    color: var(--brand-primary-color);
   }

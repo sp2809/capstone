@@ -56,9 +56,12 @@ async function handleSubmit(form) {
       },
     });
     if (response.ok) {
-      if (form.dataset.confirmation) {
-        window.location.href = form.dataset.confirmation;
-      }
+      alert("Data submitted successfully!")
+      window.location.reload();
+      // if (form.dataset.confirmation) {
+      //   window.location.href = form.dataset.confirmation;
+      //   alert("Data submitted successfully!")
+      // }
     } else {
       const error = await response.text();
       throw new Error(error);
