@@ -3,7 +3,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 // Function to fetch card data from query-index.json and filter by template
 async function fetchCardsData() {
   try {
-    const response = await fetch(`/query-index.json`);
+    const response = await fetch(`/magazine/magazine-index.json`);
     const data = await response.json();
 
     // Filter data to only include cards where template is 'magazine'
